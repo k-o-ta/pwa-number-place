@@ -1,0 +1,51 @@
+#content {
+  width: 500px
+}
+#place {
+  display: flex;
+  flex-wrap: wrap;
+  width:400px;
+  height:400px;
+  border: solid 5px;
+}
+
+#place div {
+  width: 11.111%;
+  height: 11.111%;
+  border: solid 1px;
+  border-color: black;
+  box-sizing:border-box;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+#place div:nth-child(n+28):nth-child(-n+36), #place div:nth-child(n+55):nth-child(-n+63) {
+  border-top: solid 3px;
+  border-color: black;
+}
+#place div:nth-child(9n+3), #place div:nth-child(9n+6) {
+  border-right: solid 3px;
+  border-color: black;
+}
+
+#place .fixed {
+  color: #ff0000;
+  border-color: black;
+}
+
+#place .checked {
+  border: solid 3px blue !important;
+}
+
+#numbers {
+  margin-top: 50px;
+  display: flex;
+}
+#numbers div {
+  width: 11.111%;
+}
