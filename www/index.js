@@ -1,10 +1,25 @@
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+};
 import {Sudoku} from "pwa-number-place";
 const sudoku = Sudoku.new();
+
+
+// var button = document.getElementById("notifications");
+// button.addEventListener('click', function(e) {
+//     Notification.requestPermission().then(function(result) {
+//         if(result === 'granted') {
+//             randomNotification();
+//         }
+//     });
+// });
+//
 
 var supportTouch = 'ontouchend' in document;
 var EVENTNAME_TOUCHEND = supportTouch ? 'touchend' : 'mouseup';
 
 var lock = undefined;
+
 
 function checkPlace(event) {
   let checked = parseInt(event.target.getAttribute('data-place-index'));
@@ -40,8 +55,9 @@ function checkNumber(event) {
     }
   }
 }
-// wasm.greet();
+
 Array.from(document.querySelector('#place').children).forEach((div, index) => {
+console.log('hoge1');
   div.addEventListener(EVENTNAME_TOUCHEND, checkPlace);
   div.setAttribute('data-place-index', index);
   const num = sudoku.get_num(index);
@@ -54,6 +70,3 @@ Array.from(document.querySelector('#place').children).forEach((div, index) => {
 Array.from(document.querySelector('#numbers').children).forEach((div, index) => {
   div.addEventListener(EVENTNAME_TOUCHEND, checkNumber);
 });
-console.log(sudoku.get_num(0));
-
-// alert(sudoku.problem());
